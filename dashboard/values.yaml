@@ -1,0 +1,9 @@
+# Override defaults in the upstream chart
+ingress:
+  enabled: true
+  className: "traefik"
+  hosts:
+    - host: "michaellutz.org"
+      paths:
+        - path: /k8-dashboard
+          pathType: Prefix
