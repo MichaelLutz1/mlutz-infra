@@ -3,7 +3,7 @@ ingress:
   enabled: true
   className: "traefik"
   hosts:
-    - host: "michaellutz.org"
+    - host: "ws.michaellutz.org"
       paths:
-        - path: /k8-dashboard
+        - path: /
           pathType: Prefix

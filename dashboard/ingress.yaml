@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubernetes-dashboard
+  namespace: kubernetes-dashboard
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web   # Cloudflare tunnel -> port 80 on your Pi
+    traefik.ingress.kubernetes.io/service.serversscheme: https
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: ws.michaellutz.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                # NOTE: this is the Kong proxy service the chart creates
+                name: kubernetes-dashboard-kong-proxy
+                port:
+                  number: 443
