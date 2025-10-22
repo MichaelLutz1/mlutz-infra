@@ -3,7 +3,7 @@ ingress:
   enabled: true
   className: "traefik"
   hosts:
-    - host: "ws.michaellutz.org"
+    - host: "michaellutz.org"
       paths:
         - path: /
           pathType: Prefix

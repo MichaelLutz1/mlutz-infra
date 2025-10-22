@@ -4,11 +4,14 @@ metadata:
   name: kubernetes-dashboard
   namespace: kubernetes-dashboard
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web   # Cloudflare tunnel -> :80 on your Pi
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/service.scheme: https
+    traefik.ingress.kubernetes.io/service.serverstransport: insecure-skip-verify
 spec:
   ingressClassName: traefik
   rules:
-    - host: ws.michaellutz.org
+    - host: michaellutz.org
       http:
         paths:
           - path: /
@@ -17,4 +20,4 @@ spec:
               service:
                 name: kubernetes-dashboard-kong-proxy
                 port:
-                  number: 80
+                  number: 443
