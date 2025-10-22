@@ -6,18 +6,25 @@ metadata:
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/service.scheme: https
-    traefik.ingress.kubernetes.io/service.serverstransport: insecure-skip-verify
+    traefik.ingress.kubernetes.io/router.middlewares: kubernetes-dashboard-dashboard-strip-api@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:
     - host: michaellutz.org
       http:
         paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: kubernetes-dashboard-api
+                port:
+                  number: 8000
+
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: kubernetes-dashboard-kong-proxy
+                name: kubernetes-dashboard-web
                 port:
-                  number: 443
+                  number: 8000
