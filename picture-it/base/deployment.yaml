@@ -1,7 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: picture-it-deployment
+  name: picture-it
+  namespace: mlutz-apps
   labels:
     app: picture-it
 spec:
@@ -16,6 +17,6 @@ spec:
     spec:
       containers:
       - name: picture-it
-        image: mlutzy/picture-it:latest
+        image: ghcr.io/mlutz-devops/picture-it:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080
