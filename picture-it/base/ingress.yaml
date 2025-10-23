@@ -5,7 +5,7 @@ metadata:
   namespace: mlutz-apps
 spec:
   rules:
-  - host: michaellutz.org
+  - host: picture-it.michaellutz.org
     http:
       paths:
       - path: /
