@@ -18,6 +18,6 @@ spec:
       containers:
       - name: picture-it
         image: ghcr.io/mlutz-devops/picture-it:v0.1.0
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
