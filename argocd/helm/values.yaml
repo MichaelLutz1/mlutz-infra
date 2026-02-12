@@ -1,0 +1,23 @@
+configs:
+  cm:
+    # Ensures Argo generates correct external links/redirects
+    url: https://argocd.michaellutz.org
+
+server:
+  # Required for “TLS at Cloudflare only” (Ingress is HTTP)
+  extraArgs:
+    - --insecure
+
+  ingress:
+    enabled: true
+
+    # Traefik on k3s
+    ingressClassName: traefik
+    annotations:
+      kubernetes.io/ingress.class: traefik
+
+    # Hostname you will publish via Cloudflare Tunnel
+    hostname: argocd.michaellutz.org
+
+    # Option A: no TLS in-cluster
+    tls: false
