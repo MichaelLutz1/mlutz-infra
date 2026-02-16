@@ -2,12 +2,11 @@ configs:
   cm:
     # Ensures Argo generates correct external links/redirects
     url: https://argocd.michaellutz.org
+  params:
+    # Tells the chart/server to run without TLS behind ingress
+    server.insecure: true
 
 server:
-  # Required for “TLS at Cloudflare only” (Ingress is HTTP)
-  extraArgs:
-    - --insecure
-
   ingress:
     enabled: true
 

@@ -5,16 +5,20 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://argoproj.github.io/argo-helm
-    chart: argo-cd
-    targetRevision: 7.0.0
-    targetRevision: main
-    helm:
-      valueFiles:
-        - $values/argocd/helm/values.yaml
+  sources:
+    - repoURL: https://argoproj.github.io/argo-helm
+      chart: argo-cd
+      targetRevision: 7.0.0
+      helm:
+        valueFiles:
+          - $values/argocd/helm/values.yaml
+    - repoURL: https://github.com/MichaelLutz1/mlutz-infra.git
+      targetRevision: main
+      ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
   syncPolicy:
-    automated: null
+    automated:
+      prune: true
+      selfHeal: true
