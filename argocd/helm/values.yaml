@@ -4,7 +4,7 @@ configs:
     url: https://argocd.michaellutz.org
   params:
     # Tells the chart/server to run without TLS behind ingress
-    server.insecure: true
+    server.insecure: "true"
 
 server:
   ingress:
@@ -17,6 +17,7 @@ server:
 
     # Hostname you will publish via Cloudflare Tunnel
     hostname: argocd.michaellutz.org
-
+    path: /
+    pathType: Prefix
     # Option A: no TLS in-cluster
     tls: false
