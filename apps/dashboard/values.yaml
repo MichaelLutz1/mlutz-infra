@@ -1,9 +1,0 @@
-# Override defaults in the upstream chart
-ingress:
-  enabled: true
-  className: "traefik"
-  hosts:
-    - host: "michaellutz.org"
-      paths:
-        - path: /
-          pathType: Prefix

@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: picture-it-ingress
-  namespace: mlutz-apps
+  namespace: picture-it
 spec:
   rules:
   - host: picture-it.michaellutz.org

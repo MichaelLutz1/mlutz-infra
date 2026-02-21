@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: picture-it
-  namespace: mlutz-apps
+  namespace: picture-it
   labels:
     app: picture-it
 spec:
