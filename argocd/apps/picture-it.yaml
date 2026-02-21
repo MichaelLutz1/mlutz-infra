@@ -12,7 +12,7 @@ spec:
     path: apps/picture-it/base
 
   destination:
-    target: https://kubernetes.default.svc
+    server: https://kubernetes.default.svc
     namespace: picture-it
 
   syncPolicy: null
