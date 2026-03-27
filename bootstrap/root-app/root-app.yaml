@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/MichaelLutz1/mlutz-infra.git
     targetRevision: main
-    path: bootstrap/root
+    path: argocd/apps
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
@@ -16,3 +16,6 @@ spec:
     automated:
       prune: null
       selfHeal: null
+
+
+
