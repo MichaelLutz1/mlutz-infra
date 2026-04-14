@@ -4,3 +4,4 @@ namespace: argocd
 resources:
   - argocd-self.yaml
   - picture-it.yaml
+  - cloudflared.yaml
