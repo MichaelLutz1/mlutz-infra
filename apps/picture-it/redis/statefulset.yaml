@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: picture-it-redis
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: picture-it-redis
+  serviceName: "picture-it-redis"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: picture-it-redis
+    spec:
+      containers:
+      - name: picture-it-redis
+        image: redis:8.4.2-alpine
+        ports:
+        - containerPort: 6379
+          name: picture-it-redis
+        env:
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: picture-it-redis-secret
+              key: REDIS_PASSWORD
+        command: ["/bin/sh", "-c"]
+        args:
+        - exec redis-server --requirepass "$REDIS_PASSWORD" --appendonly yes
+        volumeMounts:
+        - name: data
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      storageClassName: local-path
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
+---
+

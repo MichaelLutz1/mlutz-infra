@@ -1,0 +1,16 @@
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: picture-it-redis
+  namespace: picture-it
+spec:
+  clusterIP: None
+  selector:
+    app: picture-it-redis
+  ports:
+  - name: picture-it-redis
+    port: 6379
+    targetPort: 6379
+---
+

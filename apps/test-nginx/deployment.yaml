@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-nginx-deployment
+  namespace: test-nginx
+  labels:
+    app: test-nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-nginx-deployment
+  template:
+    metadata:
+      labels:
+        app: test-nginx-deployment
+    spec:
+      containers:
+      - name: test-nginx-deployment
+        image: nginx:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+
