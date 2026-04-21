@@ -6,3 +6,4 @@ resources:
   - picture-it.yaml
   - cloudflared.yaml
   - sealed-secrets.yaml
+  - prometheus.yaml

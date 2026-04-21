@@ -10,7 +10,7 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts/kube-prometheus-stack
     targetRevision: 83.6.0
     helm:
-      releaseName: sealed-secrets
+      releaseName: prometheus
   destination:
     server: "https://kubernetes.default.svc"
     namespace: prometheus
