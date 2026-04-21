@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/MichaelLutz1/mlutz-infra.git
     targetRevision: main
-    path: apps/picture-it/base
+    path: apps/picture-it/prod
 
   destination:
     server: https://kubernetes.default.svc
