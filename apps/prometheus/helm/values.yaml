@@ -1,0 +1,26 @@
+# values-k3s.yaml
+crds:
+  enabled: true
+prometheusOperator:
+  enabled: true
+# k3s often doesn't expose these like a full kubeadm control plane
+kubeEtcd:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+# if your k3s does not have a kube-proxy service object
+kubeProxy:
+  enabled: false
+prometheus:
+  prometheusSpec:
+    retention: 10d
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-path
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
