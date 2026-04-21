@@ -3,6 +3,8 @@ crds:
   enabled: true
 prometheusOperator:
   enabled: true
+  admissionWebhooks:
+    enabled: false
 # k3s often doesn't expose these like a full kubeadm control plane
 kubeEtcd:
   enabled: false
