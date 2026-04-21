@@ -23,3 +23,8 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
+  ignoreDifferences:
+    - group: batch
+      kind: Job
+      jqPathExpressions:
+        - '.spec.template.spec.containers[]?.resources'
