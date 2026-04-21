@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     chart: kube-prometheus-stack
-    repoURL: https://prometheus-community.github.io/helm-charts/kube-prometheus-stack
+    repoURL: ghcr.io/prometheus-community/charts
     targetRevision: 83.6.0
     helm:
       releaseName: prometheus
