@@ -1,0 +1,14 @@
+service:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    network_mode: host
+    environment:
+      - TZ=America/New_York
+    ports:
+      - 8096:8096
+    volumes:
+      - /home/lutzy/jellyfin/config:/config
+      - /home/lutzy/jellyfin/cache:/cache
+      - /home/lutzy/media:/media:ro
+    restart: unless-stopped
