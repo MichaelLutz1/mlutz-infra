@@ -7,3 +7,4 @@ resources:
   - cloudflared.yaml
   - sealed-secrets.yaml
   - prometheus.yaml
+  - arr-stack.yaml
