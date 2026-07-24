@@ -4,3 +4,4 @@ namespace: picture-it
 resources:
   - statefulset.yaml
   - service.yaml
+  - sealedsecret.yaml
