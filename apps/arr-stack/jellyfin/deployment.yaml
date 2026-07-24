@@ -38,4 +38,4 @@ spec:
           claimName: jellyfin-cache-pvc
       - name: jellyfin-media
         persistentVolumeClaim:
-          claimName: jellyfin-media-pvc
+          claimName: media-pvc
