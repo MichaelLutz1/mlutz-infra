@@ -8,4 +8,3 @@ resources:
   - sealed-secrets.yaml
   - prometheus.yaml
   - arr-stack.yaml
-  - kubernetes-dashboard.yaml
