@@ -12,10 +12,6 @@ spec:
       helm:
         releaseName: headlamp
 
-    - repoURL: https://github.com/MichaelLutz1/mlutz-infra.git
-      targetRevision: main
-      path: apps/headlamp
-
   destination:
     server: "https://kubernetes.default.svc"
     namespace: headlamp
