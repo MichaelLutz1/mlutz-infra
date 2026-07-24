@@ -13,6 +13,8 @@ spec:
       labels:
         app: qbittorrent
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: optiplex
       containers:
         - name: gluetun
           image: qmcgaw/gluetun:v3.40.0
@@ -60,10 +62,11 @@ spec:
               mountPath: /config
             - name: qbittorrent-downloads
               mountPath: /downloads
+              subPath: downloads
       volumes:
         - name: qbittorrent-config
           persistentVolumeClaim:
             claimName: qbittorrent-config-pvc
         - name: qbittorrent-downloads
           persistentVolumeClaim:
-            claimName: qbittorrent-downloads-pvc
+            claimName: media-pvc

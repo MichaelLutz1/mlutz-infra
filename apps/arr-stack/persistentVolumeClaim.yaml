@@ -25,12 +25,24 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: jellyfin-media-pvc
+  name: qbittorrent-config-pvc
   namespace: arr-stack
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: jellyfin-media
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-pvc
+  namespace: arr-stack
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: media # Only one that uses the pv bc we want to be able to have those actually live in the normal filesystem of the optiplex
   resources:
     requests:
       storage: 200Gi
