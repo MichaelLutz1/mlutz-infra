@@ -27,8 +27,9 @@ spec:
           mountPath: /config
         - name: jellyfin-cache
           mountPath: /cache
-        - name: jellyfin-media
+        - name: jellyfin-data
           mountPath: /media
+          subPath: media
       volumes:
       - name: jellyfin-config
         persistentVolumeClaim:
@@ -36,6 +37,6 @@ spec:
       - name: jellyfin-cache
         persistentVolumeClaim:
           claimName: jellyfin-cache-pvc
-      - name: jellyfin-media
+      - name: jellyfin-data
         persistentVolumeClaim:
-          claimName: media-pvc
+          claimName: data-pvc

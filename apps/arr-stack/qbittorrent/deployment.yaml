@@ -69,4 +69,4 @@ spec:
             claimName: qbittorrent-config-pvc
         - name: qbittorrent-downloads
           persistentVolumeClaim:
-            claimName: media-pvc
+            claimName: data-pvc

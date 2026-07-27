@@ -37,12 +37,12 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: media-pvc
+  name: data-pvc
   namespace: arr-stack
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: media # Only one that uses the pv bc we want to be able to have those actually live in the normal filesystem of the optiplex
+  storageClassName: data # Only one that uses the pv bc we want to be able to have those actually live in the normal filesystem of the optiplex
   resources:
     requests:
       storage: 200Gi
