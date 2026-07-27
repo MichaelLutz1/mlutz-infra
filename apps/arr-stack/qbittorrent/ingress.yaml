@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: qbitt-tailscale
+  namespace: arr-stack
+spec:
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - qbittorrent
+
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: qbittorrent-service
+                port:
+                  number: 8080

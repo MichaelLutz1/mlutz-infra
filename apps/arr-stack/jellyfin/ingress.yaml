@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jellyfin-tailscale
+  namespace: arr-stack
+spec:
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - jellyfin
+
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jellyfin-service
+                port:
+                  number: 8096
