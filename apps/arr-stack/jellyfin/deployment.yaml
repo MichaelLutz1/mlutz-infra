@@ -28,7 +28,7 @@ spec:
         - name: jellyfin-cache
           mountPath: /cache
         - name: jellyfin-data
-          mountPath: /media
+          mountPath: /data/media
           subPath: media
       volumes:
       - name: jellyfin-config
