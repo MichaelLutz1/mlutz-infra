@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prowlarr
+  namespace: arr-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prowlarr
+  template:
+    metadata:
+      labels:
+        app: prowlarr
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: optiplex
+      containers:
+      - name: prowlarr
+        image: lscr.io/linuxserver/prowlarr:2.6.1-nightly
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9696
+        volumeMounts:
+        - name: prowlarr-config
+          mountPath: /config
+        env:
+          - name: PUID
+            value: "1000"
+          - name: GUID
+            value: "1000"
+          - name: TZ
+            value: America/New_York
+      volumes:
+      - name: prowlarr-config
+        persistentVolumeClaim:
+          claimName: prowlarr-config-pvc

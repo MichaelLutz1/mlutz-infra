@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prowlarr-tailscale
+  namespace: arr-stack
+spec:
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - prowlarr
+
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: prowlarr-service
+                port:
+                  number: 9696
