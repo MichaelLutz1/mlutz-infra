@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: radarr
+  namespace: arr-stack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: radarr
+  template:
+    metadata:
+      labels:
+        app: radarr
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: optiplex
+      containers:
+      - name: radarr
+        image: lscr.io/linuxserver/radarr:6.4.1-nightly
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 7878
+        volumeMounts:
+        - name: radarr-data
+          mountPath: /data
+        - name: radarr-config
+          mountPath: /config
+        env:
+          - name: PUID
+            value: "1000"
+          - name: GUID
+            value: "1000"
+          - name: TZ
+            value: America/New_York
+      volumes:
+      - name: radarr-data
+        persistentVolumeClaim:
+          claimName: data-pvc
+      - name: radarr-config
+        persistentVolumeClaim:
+          claimName: radarr-config-pvc
