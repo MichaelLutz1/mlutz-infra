@@ -61,8 +61,8 @@ spec:
             - name: qbittorrent-config
               mountPath: /config
             - name: qbittorrent-downloads
-              mountPath: /downloads
-              subPath: downloads
+              mountPath: /torrents
+              subPath: torrents
       volumes:
         - name: qbittorrent-config
           persistentVolumeClaim:
