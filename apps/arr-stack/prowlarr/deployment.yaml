@@ -16,25 +16,6 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: optiplex
       containers:
-      - name: gluetun
-        image: qmcgaw/gluetun:v3.41.3
-        imagePullPolicy: IfNotPresent
-        securityContext:
-          capabilities:
-            add:
-              - NET_ADMIN
-        envFrom:
-          - secretRef:
-              name: gluetun-vpn-secret
-        env:
-          - name: TZ
-            value: America/New_York
-          - name: FIREWALL_INPUT_PORTS
-            value: "9696"
-          - name: DNS_KEEP_NAMESERVER
-            value: on
-          - name: FIREWALL_OUTBOUND_SUBNETS
-            value: "10.42.0.0/16,10.43.0.0/16"
       - name: prowlarr
         image: lscr.io/linuxserver/prowlarr:2.6.1-nightly
         imagePullPolicy: IfNotPresent
