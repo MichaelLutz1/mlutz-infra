@@ -5,4 +5,4 @@ resources:
   - service.yaml
   - deployment.yaml
   - ingress.yaml
-  - nodeport.yaml
+  - lan-ingress.yaml
