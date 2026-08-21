@@ -17,15 +17,15 @@ spec:
         kubernetes.io/hostname: optiplex
       containers:
         - name: qbittorrent
-          image: ghcr.io/hotio/qbittorrent
+          image: ghcr.io/hotio/qbittorrent:latest
+          envFrom:
+            - configMapRef:
+                name: qbitt-cm
           imagePullPolicy: IfNotPresent
           securityContext:
             capabilities:
               add:
                 - NET_ADMIN
-          envFrom:
-            - configMapRef:
-              name: qbittorrent-config
           ports:
             - containerPort: 8080
               protocol: TCP
