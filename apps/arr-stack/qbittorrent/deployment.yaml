@@ -37,6 +37,10 @@ spec:
             - name: qbittorrent-downloads
               mountPath: /data/torrents
               subPath: torrents
+            - name: qbittorrent-vpn
+              mountPath: /config/wireguard/wg0.conf
+              subPath: wg0.conf
+              readOnly: true
       volumes:
         - name: qbittorrent-config
           persistentVolumeClaim:
@@ -44,3 +48,6 @@ spec:
         - name: qbittorrent-downloads
           persistentVolumeClaim:
             claimName: data-pvc
+        - name: qbittorrent-vpn
+          secret:
+            secretName: qbitt-vpn-secret
