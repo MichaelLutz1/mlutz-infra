@@ -4,6 +4,7 @@ metadata:
   name: jellyfin
   namespace: arr-stack
 spec:
+  revisionHistoryLimit: 3
   replicas: 1
   selector:
     matchLabels:

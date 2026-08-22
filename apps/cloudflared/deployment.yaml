@@ -4,6 +4,7 @@ metadata:
   name: cloudflared-deployment
   namespace: cloudflared
 spec:
+  revisionHistoryLimit: 3
   replicas: 2
   selector:
     matchLabels:
