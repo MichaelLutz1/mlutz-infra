@@ -1,16 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jellyfin-tailscale
+  name: jellyfin-lan
   namespace: arr-stack
 spec:
-  ingressClassName: tailscale
-  tls:
-    - hosts:
-        - jellyfin
-
+  ingressClassName: traefik
   rules:
-    - http:
+    - host: jellyfin.home.arpa
+      http:
         paths:
           - path: /
             pathType: Prefix

@@ -1,13 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: headlamp-lan
-  namespace: arr-stack
+  name: headlamp-tailscale
+  namespace: headlamp
 spec:
-  ingressClassName: traefik
+  ingressClassName: tailscale
+
+  tls:
+    - hosts:
+        - headlamp
+
   rules:
-    - host: headlamp.home.arpa
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix

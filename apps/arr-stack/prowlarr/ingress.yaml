@@ -1,16 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: prowlarr-tailscale
+  name: prowlarr-lan
   namespace: arr-stack
 spec:
-  ingressClassName: tailscale
-  tls:
-    - hosts:
-        - prowlarr
-
+  ingressClassName: traefik
   rules:
-    - http:
+    - host: prowlarr.home.arpa
+      http:
         paths:
           - path: /
             pathType: Prefix

@@ -1,18 +1,22 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: headlamp-lan
-  namespace: arr-stack
+  name: grafana-tailscale
+  namespace: observability
 spec:
-  ingressClassName: traefik
+  ingressClassName: tailscale
+
+  tls:
+    - hosts:
+        - grafana
+
   rules:
-    - host: headlamp.home.arpa
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: headlamp
+                name: prometheus-grafana
                 port:
                   number: 80

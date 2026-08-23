@@ -1,18 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jellyfin-lan
+  name: qbitt-tailscale
   namespace: arr-stack
 spec:
-  ingressClassName: traefik
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - qbittorrent
+
   rules:
-    - host: jellyfin.home.arpa
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: jellyfin-service
+                name: qbittorrent-service
                 port:
-                  number: 8096
+                  number: 8080

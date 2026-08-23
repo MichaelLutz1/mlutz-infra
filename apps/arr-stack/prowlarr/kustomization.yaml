@@ -4,4 +4,5 @@ namespace: arr-stack
 resources:
   - service.yaml
   - deployment.yaml
+  - ts-ingress.yaml
   - ingress.yaml

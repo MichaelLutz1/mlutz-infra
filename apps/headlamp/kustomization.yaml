@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: headlamp
 resources:
   - ingress.yaml
+  - ts-ingress.yaml

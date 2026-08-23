@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: argocd
 resources:
   - ingress.yaml
+  - ts-ingress.yaml

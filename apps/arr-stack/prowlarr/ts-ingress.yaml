@@ -1,18 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: headlamp-lan
+  name: prowlarr-tailscale
   namespace: arr-stack
 spec:
-  ingressClassName: traefik
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - prowlarr
+
   rules:
-    - host: headlamp.home.arpa
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: headlamp
+                name: prowlarr-service
                 port:
-                  number: 80
+                  number: 9696

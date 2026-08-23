@@ -1,16 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: qbitt-tailscale
+  name: qbitt-lan
   namespace: arr-stack
 spec:
-  ingressClassName: tailscale
-  tls:
-    - hosts:
-        - qbittorrent
-
+  ingressClassName: traefik
   rules:
-    - http:
+    - host: qbittorrent.home.arpa
+      http:
         paths:
           - path: /
             pathType: Prefix

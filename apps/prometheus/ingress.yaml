@@ -1,17 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: grafana-tailscale
+  name: grafana-lan
   namespace: observability
 spec:
-  ingressClassName: tailscale
-
-  tls:
-    - hosts:
-        - grafana
-
+  ingressClassName: traefik
   rules:
-    - http:
+    - host: grafana.home.arpa
+      http:
         paths:
           - path: /
             pathType: Prefix

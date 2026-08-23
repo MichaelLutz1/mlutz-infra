@@ -1,16 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: radarr-tailscale
+  name: radarr-lan
   namespace: arr-stack
 spec:
-  ingressClassName: tailscale
-  tls:
-    - hosts:
-        - radarr
-
+  ingressClassName: traefik
   rules:
-    - http:
+    - host: radarr.home.arpa
+      http:
         paths:
           - path: /
             pathType: Prefix
