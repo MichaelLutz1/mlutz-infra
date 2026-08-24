@@ -8,7 +8,9 @@ metadata:
 data:
   kubernetes.yaml: |
     mode: cluster
-  settings.yaml: ""
+  settings.yaml: |
+    title: My Awesome Homepage
+    ingress: true
   #settings.yaml: |
   #  providers:
   #    longhorn:
