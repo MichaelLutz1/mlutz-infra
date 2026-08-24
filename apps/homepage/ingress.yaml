@@ -14,7 +14,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: "homepage.my.network"
+    - host: "homepage.home.arpa"
       http:
         paths:
           - path: "/"
