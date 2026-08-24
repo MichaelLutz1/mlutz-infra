@@ -10,3 +10,4 @@ resources:
   - prometheus.yaml
   - arr-stack.yaml
   - tailscale-operator.yaml
+  - homepage.yaml
