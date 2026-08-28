@@ -9,7 +9,7 @@ metadata:
     gethomepage.dev/group: Cluster Management
     gethomepage.dev/icon: homepage.png
     gethomepage.dev/name: Headlamp
-    gethomepage.dev/pod-selector: "app.kubernetes.io/app=homepage"
+    gethomepage.dev/pod-selector: "app.kubernetes.io/app=headlamp"
 spec:
   ingressClassName: traefik
   rules:
