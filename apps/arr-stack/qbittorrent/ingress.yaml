@@ -4,9 +4,9 @@ metadata:
   name: qbitt-lan
   namespace: arr-stack
   annotations:
-    gethomepage.dev/description: Dynamically Detected Homepage
+    gethomepage.dev/description: Torrent Client
     gethomepage.dev/enabled: "true"
-    gethomepage.dev/group: Cluster Management
+    gethomepage.dev/group: Media
     gethomepage.dev/icon: qbittorrent.png
     gethomepage.dev/name: Qbittorrent
     gethomepage.dev/pod-selector: "app=qbittorrent"

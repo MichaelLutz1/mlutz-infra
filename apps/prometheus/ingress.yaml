@@ -3,6 +3,13 @@ kind: Ingress
 metadata:
   name: grafana-lan
   namespace: observability
+  annotations:
+    gethomepage.dev/description: Metrics Viewer
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Cluster Management
+    gethomepage.dev/icon: grafana.png
+    gethomepage.dev/name: Grafana
+    gethomepage.dev/pod-selector: "app.kubernetes.io/name=grafana"
 spec:
   ingressClassName: traefik
   rules:

@@ -3,6 +3,13 @@ kind: Ingress
 metadata:
   name: argocd-lan
   namespace: argocd
+  annotations:
+    gethomepage.dev/description: CI/CD UI
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Cluster Management
+    gethomepage.dev/icon: argo-cd.png
+    gethomepage.dev/name: ArgoCD
+    gethomepage.dev/pod-selector: "app.kubernetes.io/name=argocd-server"
 spec:
   ingressClassName: traefik
   rules:

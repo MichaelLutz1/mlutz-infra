@@ -3,6 +3,13 @@ kind: Ingress
 metadata:
   name: radarr-lan
   namespace: arr-stack
+  annotations:
+    gethomepage.dev/description: Movie Searcher
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/icon: radarr.png
+    gethomepage.dev/name: Radarr
+    gethomepage.dev/pod-selector: "app=radarr"
 spec:
   ingressClassName: traefik
   rules:

@@ -3,6 +3,13 @@ kind: Ingress
 metadata:
   name: prowlarr-lan
   namespace: arr-stack
+  annotations:
+    gethomepage.dev/description: Indexer Manager
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/icon: prowlarr.png
+    gethomepage.dev/name: Prowlarr
+    gethomepage.dev/pod-selector: "app=prowlarr"
 spec:
   ingressClassName: traefik
   rules:
