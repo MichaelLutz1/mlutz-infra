@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: qbittorrent
   namespace: arr-stack
+  labels:
+    app.kubernetes.io/name: qbittorrent
 spec:
   revisionHistoryLimit: 3
   replicas: 1
