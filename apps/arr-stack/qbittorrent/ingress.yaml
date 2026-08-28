@@ -3,6 +3,12 @@ kind: Ingress
 metadata:
   name: qbitt-lan
   namespace: arr-stack
+  annotations:
+    gethomepage.dev/description: Dynamically Detected Homepage
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Cluster Management
+    gethomepage.dev/icon: homepage.png
+    gethomepage.dev/name: Homepage
 spec:
   ingressClassName: traefik
   rules:
