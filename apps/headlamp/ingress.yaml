@@ -4,10 +4,10 @@ metadata:
   name: headlamp-lan
   namespace: arr-stack
   annotations:
-    gethomepage.dev/description: Dynamically Detected Homepage
+    gethomepage.dev/description: Cluster management UI for Kubernetes.
     gethomepage.dev/enabled: "true"
     gethomepage.dev/group: Cluster Management
-    gethomepage.dev/icon: homepage.png
+    gethomepage.dev/icon: headlamp.png
     gethomepage.dev/name: Headlamp
     gethomepage.dev/pod-selector: "app.kubernetes.io/name=headlamp"
 spec:
