@@ -23,14 +23,14 @@ data:
             - icon: github.png
               href: https://github.com/MichaelLutz1/mlutz-infra
               description: Infra Repo
-        - Proton
+        - Proton:
             - icon: proton-vpn.png
               href: https://account.proton.me/u/4/vpn/dashboardV2
-        - Cloudflare
+        - Cloudflare:
             - icon: cloudflare.png
               href: https://dash.cloudflare.com/d89cca3c29773542d0c4440e0d708b2f/one/networks/connectors
               description: Cloudflare Zero Trust
-        - Tailscale
+        - Tailscale:
             - icon: tailscale.png
               href: https://console.tailscale.com/admin/machines
   services.yaml: |
