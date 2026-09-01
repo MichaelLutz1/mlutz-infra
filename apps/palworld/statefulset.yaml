@@ -15,6 +15,8 @@ spec:
       labels:
         app: palworld-server
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: optiplex
       containers:
         - name: palworld-server
           # Using latest by default, for production, consider pinning to a specific version: https://hub.docker.com/r/thijsvanloef/palworld-server-docker/tags
