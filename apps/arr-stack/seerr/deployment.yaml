@@ -24,7 +24,7 @@ spec:
         - containerPort: 5055
         volumeMounts:
         - name: seerr-config
-          mountPath: /config
+          mountPath: /app/config
         env:
           - name: LOG_LEVEL
             value: "debug"
