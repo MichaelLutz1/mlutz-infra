@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: seerr-lan
+  namespace: arr-stack
+  annotations:
+    gethomepage.dev/description: Movie Searcher
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/icon: seerr.png
+    gethomepage.dev/name: Seerr
+    gethomepage.dev/pod-selector: "app=seerr"
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: seerr.home.arpa
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: seerr-service
+                port:
+                  number: 5055

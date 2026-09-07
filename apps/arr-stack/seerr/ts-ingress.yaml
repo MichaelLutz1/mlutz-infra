@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: seerr-tailscale
+  namespace: arr-stack
+spec:
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - seerr
+
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: seerr-service
+                port:
+                  number: 5055
