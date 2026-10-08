@@ -21,4 +21,4 @@ spec:
         image: ghcr.io/mlutz-devops/timer:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 80
