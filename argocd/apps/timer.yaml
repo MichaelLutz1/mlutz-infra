@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: timer
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/MichaelLutz1/mlutz-infra.git
+    targetRevision: main
+    path: apps/timer
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: timer
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true

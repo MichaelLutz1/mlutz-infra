@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timer
+  namespace: timer
+  labels:
+    app: timer
+spec:
+  revisionHistoryLimit: 3
+  replicas: 1
+  selector:
+    matchLabels:
+      app: timer
+  template:
+    metadata:
+      labels:
+        app: timer
+    spec:
+      containers:
+      - name: timer
+        image: ghcr.io/mlutz-devops/timer:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080

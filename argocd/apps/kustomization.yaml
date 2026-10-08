@@ -12,3 +12,4 @@ resources:
   - tailscale-operator.yaml
   - homepage.yaml
   - palworld.yaml
+  - timer.yaml
