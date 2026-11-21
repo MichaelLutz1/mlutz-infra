@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sonarr-tailscale
+  namespace: arr-stack
+spec:
+  ingressClassName: tailscale
+  tls:
+    - hosts:
+        - sonarr
+
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sonarr-service
+                port:
+                  number: 8989

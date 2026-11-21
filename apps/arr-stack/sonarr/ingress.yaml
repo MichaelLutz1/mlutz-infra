@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sonarr-lan
+  namespace: arr-stack
+  annotations:
+    gethomepage.dev/description: Show Searcher
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Media
+    gethomepage.dev/icon: sonarr.png
+    gethomepage.dev/name: sonarr
+    gethomepage.dev/pod-selector: "app=sonarr"
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: sonarr.home.arpa
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sonarr-service
+                port:
+                  number: 8989
