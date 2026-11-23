@@ -22,6 +22,9 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 7878
+        securityContext:
+          appArmorProfile:
+            type: Unconfined
         volumeMounts:
         - name: radarr-data
           mountPath: /data
