@@ -51,6 +51,9 @@ spec:
             value: "1000"
           - name: TZ
             value: America/New_York
+        securityContext:
+          appArmorProfile:
+            type: Unconfined
       volumes:
       - name: prowlarr-config
         persistentVolumeClaim:

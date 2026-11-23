@@ -30,6 +30,9 @@ spec:
             value: "debug"
           - name: TZ
             value: America/New_York
+        securityContext:
+          appArmorProfile:
+            type: Unconfined
       volumes:
       - name: seerr-config
         persistentVolumeClaim:
