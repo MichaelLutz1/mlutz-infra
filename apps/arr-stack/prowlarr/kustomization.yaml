@@ -6,4 +6,4 @@ resources:
   - deployment.yaml
   - ts-ingress.yaml
   - ingress.yaml
-  - secret.yaml
+  - sealedsecret.yaml
