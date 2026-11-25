@@ -23,6 +23,9 @@ spec:
         ports:
         - containerPort: 8096
         # - containerPort: 8920
+        securityContext:
+          appArmorProfile:
+            type: Unconfined
         volumeMounts:
         - name: jellyfin-config
           mountPath: /config
